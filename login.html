@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="styler.css">
+  <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        // Get form data
+        
+        var username = $("#username").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
+        
+
+        // Validate required fields
+        if (!username || !email || !password ) {
+          alert("Please fill in all required fields.");
+          return;
+        }
+
+        // Validate email format
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Invalid email format. Please enter a valid email address.");
+          return;
+        }
+
+        // Validate pincode format
+        //var pincodeRegex = /^\d{6}$/;
+        //if (!pincodeRegex.test(pincode)) 
+
+        // Display data
+        var displayText = "<br>Username: " + username + "<br>Email: " + email +
+                          "<br>Password: " + password ;
+
+        $("#div1").html(displayText);
+      });
+    });
+  </script>
+</head>
+<body>
+
+  
+
+  <form>
+    
+
+    <label for="username" class="required">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+
+    <label for="email" class="required">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="password" class="required">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    
+
+   
+    </select><br>
+
+   
+  
+    <button type="button">Submit</button><br><br>
+    <li><a href="signup.html">Sign Up Here!!</a></li>
+    
+  </form>
+
+  <div id="div1"></div>
+
+</body>
+</html>
